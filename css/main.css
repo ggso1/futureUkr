@@ -1006,6 +1006,10 @@ ul {
 }
 
 /* АААА */
+.hidden {
+  display: none;
+}
+
 .hmagic {
   text-align: center;
   margin: 50px;

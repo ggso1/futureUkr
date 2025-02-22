@@ -1,6 +1,5 @@
-const token = '7643771807:AAFNISXPwKvLSF6VJFwCqjcjhXBA5eALGPc';  
-const chatId = '-1002474744467'; 
-const testGroupID = '-1002472181316'
+const token = '7416370472:AAFE8gVuVQOzeEmORFoilKnK94RndxfNhVY';  
+const chatId = '-1002490958791';
 
 
 const urlPeople = `https://api.telegram.org/bot${token}/getChatMemberCount?chat_id=${chatId}`;
@@ -14,7 +13,7 @@ function getMemberCount() {
         .then(data => {
             if (data.ok) {
                 // Вивести кількість учасників
-               // console.log(data.result)
+                // console.log(data.result)
                 document.getElementById('peopleCount').textContent = data.result;
             } else {
                 document.getElementById('peopleCount').textContent = 'Помилка при отриманні даних';

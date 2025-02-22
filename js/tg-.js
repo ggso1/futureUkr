@@ -1,33 +1,11 @@
-// Ваш токен для бота
-//const token = '7643771807:AAFNISXPwKvLSF6VJFwCqjcjhXBA5eALGPc'; // Вставте ваш токен
-// ID чату або групи
-//const chatId = '-4545119175'; // Вставте ID вашої групи
+const token = '7416370472:AAFE8gVuVQOzeEmORFoilKnK94RndxfNhVY';  
+const chatId = '-1002490958791';
 const feedbackSent = document.getElementById('feedback-sent'); // Статус надсилання
 
 // URL для запиту до API для отримання кількості учасників
 const url = `https://api.telegram.org/bot${token}/getChatMembersCount?chat_id=${chatId}`;
+const sendMessageUrl = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
 
-// Функція для отримання кількості учасників
-function getPeopleCount() {
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            if (data.ok) {
-                // Вивести кількість учасників
-                document.getElementById('peopleCount').textContent = data.result;
-            } else {
-                document.getElementById('peopleCount').textContent = 'Помилка при отриманні даних';
-                console.error('Помилка:', data);
-            }
-        })
-        .catch(error => {
-            console.error('Помилка під час отримання кількості людей:', error);
-            document.getElementById('peopleCount').textContent = 'Не вдалося отримати дані';
-        });
-}
-
-// Викликаємо функцію для отримання кількості людей при завантаженні сторінки
-window.onload = getPeopleCount;
 
 // Обробник для відправки коментаря через Telegram-бота
 const sendBtn = document.querySelector('.sendtg-btn');
@@ -59,11 +37,11 @@ sendBtn.addEventListener('click', (event) => {
             if (data.ok) {
                 // Очищаємо поле вводу після відправлення
                 feedbackInput.value = '';
-                feedbackSent.textContent = 'Пророцтво збулось!';
+                feedbackSent.textContent = 'Надіслано!';
                 feedbackSent.classList.remove('hidden');
             } else {
                 console.error("Помилка надсилання:", data);
-                feedbackSent.textContent = 'Не вдалося надіслати пророцтво.';
+                feedbackSent.textContent = 'Не вдалося надіслати.';
                 feedbackSent.classList.remove('hidden');
             }
         })
