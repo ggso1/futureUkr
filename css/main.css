@@ -2,11 +2,11 @@
 
 :root {
   --color-primary-dark: #0c1c12;
-  --color-primary-light: #cad1bb;
-  --color-brand-normal: #df2121e0;
+  --color-primary-light: #ffffff;
+  --color-brand-normal: #0000b4e0;
   --color-brand-light: #ec4b4b;
   --color-brand-normal-dark: #562121;
-  --color-secondary-dark: #2d6322;
+  --color-secondary-dark: #374569;
 
 }
 
@@ -83,7 +83,7 @@ ul {
   color: var(--color-primary-light);
   font-weight: 600;
   background-color: var(--color-secondary-dark);
-  border: 2px solid #052407;
+  border: 2px solid #000000;
   border-radius: 8px;
   cursor: pointer;
   overflow: hidden;
@@ -262,7 +262,7 @@ ul {
 /* Hero section */
 .hero-section {
   padding: 272px 0;
-  background-image: url("../images/fon header.png");
+  background-image: url("../images/fon.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -272,7 +272,7 @@ ul {
   color: var(--color-primary-light);
   text-align: center;
   font-size: 48px;
-  font-weight: 900;
+  font-weight: 600;
   font-style: italic;
   line-height: 1.2;
 
@@ -290,13 +290,13 @@ ul {
 
   /* Для дуже великих екранів */
   @media screen and (min-width: 1200px) {
-    font-size: 144px;
+  
     line-height: 1.6;
   }
 }
 
 .hero-title .accent {
-  color: #f5ebebe0;
+  color: #000000e0;
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;

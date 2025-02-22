@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Molfarka</title>
+    <title>Ukrainefuture</title>
     <!--Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,15 +20,15 @@
         <div class="header-container">
             <nav class="header-nav" aria-label="Головне меню">
                 <a href="index.html" class="logo-link">
-                    <img class="logo-form" src="images/logo.png" alt="Логотип Мольфарка">
+                    <img class="logo-form" src="images/logo.png" alt="Logoukr">
                 </a>
                 <ul class="header-menu">
-                    <li><a class="link" href="#traditions-section">Наша таверна</a></li>
-                    <li><a class="link" href="#chef-section">Мольфари</a></li>
-                    <li><a class="link" href="#formats-section">Рецепти</a></li>
+                    <li><a class="link" href="#develop-section">Розвиток</a></li>
+                    <li><a class="link" href="#techniqe-section">Техніка</a></li>
+                    <li><a class="link" href="#strategy-section">Стратегія</a></li>
                 </ul>
             </nav>
-            <button class="header_button button modal-btn-open" type="button">Викликати відьму</button>
+            <button class="header_button button modal-btn-open" type="button">Зв'язок</button>
             <button class="burger-button" type="button" aria-label="Меню">
                 <span></span>
                 <span></span>
@@ -41,9 +41,9 @@
 <div class="modal-menu" aria-hidden="true">
     <img src="./images/logo.png" alt="Logo" class="logo">
     <ul class="modal-menu-list">
-        <li><a class="link" href="#traditions-section">Наша таверна</a></li>
-        <li><a class="link" href="#chef-section">Мольфари</a></li>
-        <li><a class="link" href="#formats-section">Рецепти</a></li>
+        <li><a class="link" href="#develop-section">Розвиток</a></li>
+        <li><a class="link" href="#techniqe-section">Техніка</a></li>
+        <li><a class="link" href="#strategy-section">Стратегія</a></li>
     </ul>
     <button class="close-button">X</button>
 
@@ -53,17 +53,17 @@
 <main>
     <section class="hero-section">
         <div class="container">
-            <h1 class="hero-title"><span class="accent">Мольфарка</span></h1>
+            <h1 class="hero-title"><span class="accent">Майбутнє України</span></h1>
         </div>
     </section>
 
     <section class="advantages-section">
         <div class="advantages-container">
-            <h2 class="section-title visually-hidden">Наші переваги</h2>
+            <h2 class="section-title visually-hidden">Статистика</h2>
             <ul class="advantages-list" data-aos="fade-up" data-aos-duration="800">
-                <li class="advantages-item">Популярні зілля</li>
-                <li class="advantages-item">Доступні за бюджетом напої</li>
-                <li class="advantages-item">Досвідчені Мольфари</li>
+                <li class="advantages-item">Статистика</li>
+                <li class="advantages-item">Розвиток України</li>
+                <li class="advantages-item">Наша Культура</li>
             </ul>
         </div>
     </section>
@@ -74,19 +74,10 @@
     <section class="traditions-section section" id="traditions-section">
         <div class="container">
             <div class="traditions-container">
-                <div class="traditions-content">
-                    <h2 class="traditions-title section-title">Наша таверна</h2>
-                    <p class="traditions-text">
-                        <span class="brand uppercase">Мольфарка</span> - таверна, де народжується магія напоїв,
-                        зберігається смак традиційних напоїв та натуральності інгредієнтів.
-                    </p>
-                    <p class="traditions-text">
-                        Ми працюємо як найвідоміший заклад в магічному світі -
-                        <span class="highlighted-text">5 хвилин і замовлення готове.</span><br>
-                        А ще у наших мольфарів магічний дизайн і висока якість обслуговування!
-                    </p>
-                </div>
-                <img class="molfarka-bar" src="./images/molfarka bar.webp" alt="Мольфарка в червоному кольорі">
+                <img src="./images/1grafic.png" alt="1">
+                <img src="./images/2grafic.png" alt="2">
+                <img src="./images/3 grafic.png" alt="3">
+                <img src="./images/4grafic.png" alt="">
             </div>
         </div>
     </section>
@@ -269,60 +260,7 @@
             </div>
         </section>
 
-        <section class="game">
-            <div class="coktail">
-                <h1>Магічна мішанка</h1>
-                <div class="zilia">
-                    <div>
-                        <p class="texpr" for="zillia1">Зілля 1</p>
-                        <img class="png" src="./image/1.jfif" alt="">
-                        <div class="buttons-game">
-                            <button onclick="changeValue('zillia1', -1)">-</button>
-                            <input type="text-game" id="zillia1" value="1" readonly>
-                            <button onclick="changeValue('zillia1', 1)">+</button>
-                        </div>
-                    </div>
-
-                    <div>
-                        <p class="texpr" for="zillia2">Зілля 2</p>
-                        <img class="png" src="./image/2.jfif" alt="">
-                        <div class="buttons-game">
-                            <button onclick="changeValue('zillia2', -1)">-</button>
-                            <input type="text-game" id="zillia2" value="1" readonly>
-                            <button onclick="changeValue('zillia2', 1)">+</button>
-                        </div>
-                    </div>
-
-                    <div>
-                        <p class="texpr" for="zillia3">Зілля 3</p>
-                        <img class="png" src="./image/3.jfif" alt="">
-                        <div class="buttons-game">
-                            <button onclick="changeValue('zillia3', -1)">-</button>
-                            <input type="text-game" id="zillia3" value="1" readonly>
-                            <button onclick="changeValue('zillia3', 1)">+</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="content click-buttons">
-                    <button onclick="mix()" id="mix">Замовити у Мальфарки</button>
-                    <button onclick="mixRandom()" id="mix">Випадкова мішанка</button>
-                </div>
-                <div class="result">
-                    <div id="image-container">
-                        <img id="display-image" src="./img/0.jfif" alt="Image" />
-                    </div>
-
-                    <div class="info">
-                        <h2 id="name">Мішанка</h2>
-                        <h3 id="description">Опис</h3>
-                        <p id="full_description">Детальний Опис</p>
-                        <h3 id="price">Ціна</h3>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
+       
 
         <section class="AAAA">
             <h2 class="hmagic">Приєднуйтеся до нашого магічного кола ♡</h2>
