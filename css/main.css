@@ -356,9 +356,6 @@ ul {
   text-align: center;
 }
 
-.section-title .accent {
-  color: var(--color-brand-normal-dark);
-}
 
 @media (max-width: 768px) {
   .advantages-section {
@@ -399,13 +396,24 @@ ul {
 
 .traditions-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 20px; /* Відступ між елементами */
 }
 
-.traditions-content {
-  max-width: 50%;
+.tradition-item {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Відступ між картинкою і текстом */
+}
+
+.stutistic {
+  width: 500px; /* Або будь-який інший розмір */
+  height: auto;
+}
+
+.tradition-text {
+  font-size: 16px;
+  color: #333;
 }
 
 .molfarka-bar {
@@ -483,7 +491,6 @@ ul {
 
 /* Chef section */
 .chefs-title {
-  position: relative;
   margin: 0 auto 80px;
 }
 
@@ -507,46 +514,36 @@ ul {
 
 .chef-list {
   display: flex;
+  justify-content: center;
+  gap: 40px;
   flex-wrap: wrap;
-  gap: 40px 30px;
 }
 
 .chef-item {
-  flex-basis: calc((100% - 30px) / 2);
+  flex-basis: calc(100% / 3 - 40px);
+  text-align: center;
 }
 
 .chef-card {
   display: flex;
-  gap: 30px;
+  flex-direction: column;
   align-items: center;
-  
 }
 
 .chef-photo {
-  border-radius: 200px 4px 200px 4px;
-  box-shadow: -1px 2px 8px 12px #633232;
-  height: 445px;
-  top: -46px;
-  gap: 0px;
-  opacity: 1;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  box-shadow: -1px 2px 8px 12px #0c0128;
 }
 
 .chef-title {
-  margin-bottom: 16px;
-  font-size: 40px;
-  font-weight: 600;
+  font-size: 24px;
+  margin: 16px 0 8px;
 }
 
 .chef-text {
   font-size: 1rem;
-}
-
-/* Контейнер для тексту з розмірами 162x273 */
-.chef-text-container {
-  width: 162px;
-  height: 273px;
-  overflow: hidden;
-  padding: 10px;
 }
 
 /* Адаптація для планшетів та менших екранів */
@@ -564,7 +561,7 @@ ul {
   }
 
   .chef-card {
-    flex-direction: row;
+    flex-direction: column;
   }
 
   .chef-photo {
@@ -672,27 +669,27 @@ ul {
 }
 
 .format-card1 {
-  background-image: url("../images/format1.jpg.webp");
+  background-image: url("../images/mova.png");
 }
 
 .format-card2 {
-  background-image: url("../images/format2.webp");
+  background-image: url("../images/reconstruction.png");
 }
 
 .format-card3 {
-  background-image: url("../images/format3.jpg");
+  background-image: url("../images/freeukr.png");
 }
 
 .format-card4 {
-  background-image: url("../images/4zilia.webp");
+  background-image: url("../images/education.png");
 }
 
 .format-card5 {
-  background-image: url("../images/5zilia.webp");
+  background-image: url("../images/unity.png");
 }
 
 .format-card6 {
-  background-image: url("../images/6zilia.webp");
+  background-image: url("../images/politica.png");
 }
 
 .resept-title {
@@ -1011,6 +1008,7 @@ ul {
 /* АААА */
 .hmagic {
   text-align: center;
+  margin: 50px;
 }
 
 .feedback-form {
