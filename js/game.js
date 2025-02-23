@@ -44,17 +44,30 @@ class GameScene extends Phaser.Scene {
         const yPositions = [900, 800]; // Відстань між платформами
 
         let movingPlatforms = this.physics.add.group();
+        let platformSpacing = 200; // Мінімальна відстань між платформами
 
         for (let i = 0; i < platformsPerScreen; i++) {
-            const x = Phaser.Math.Between(50, worldWidth - 200);
-            const y = yPositions[i % yPositions.length]; // Use modulo to cycle through yPositions
+            let x, y, validPosition;
+            do {
+                x = Phaser.Math.Between(50, worldWidth - 200);
+                y = yPositions[i % yPositions.length]; // Use modulo to cycle through yPositions
+                validPosition = true;
+
+                // Перевірка на накладання з іншими платформами
+                movingPlatforms.children.iterate(function (child) {
+                    if (Math.abs(child.x - x) < platformSpacing) {
+                        validPosition = false;
+                    }
+                });
+            } while (!validPosition);
+
             const scale = 0.5;
-            const v = 500;
+            const v = 200; // Встановлення однакової швидкості для всіх платформ
 
             const platform = movingPlatforms.create(x, y, 'ground').setScale(scale).refreshBody();
             platform.body.setAllowGravity(false);
             platform.body.setImmovable(true);
-            platform.body.setVelocityX(Phaser.Math.Between(-v, v));
+            platform.body.setVelocityX(v); // Встановлення однакової швидкості
             platform.setCollideWorldBounds(true);
             platform.setBounce(1, 1);
         }
@@ -95,6 +108,7 @@ class GameScene extends Phaser.Scene {
             key: 'star',
             repeat: 16.6 * countOfScreens,
             setXY: { x: 12, y: 0, stepX: 70 },
+            
         });
 
         stars.children.iterate(function (child) {
@@ -103,6 +117,7 @@ class GameScene extends Phaser.Scene {
             child.setCollideWorldBounds(true);
             child.body.setAllowGravity(true);
             child.setVelocityX(0);
+            child.setScale(0.1); // Зменшення розміру зірки до 50%
         });
 
         this.physics.add.collider(stars, platforms);
@@ -222,7 +237,7 @@ let score = 0;
 let gameOver = false;
 let countOfScreens = 2;
 let worldWidth = 1200 * countOfScreens;
-let platformsPerScreen = 8;
+let platformsPerScreen = 3; // Зменшено кількість рухомих платформ на 3
 let timer = 0;
 let lives = 3;
 let timerEvent;
