@@ -45,6 +45,11 @@ p {
   margin-top: 0;
 }
 
+h2{
+font-size: 150%;
+text-align: center;
+margin: 20px;
+}
 address {
   font-style: normal;
 }
@@ -110,8 +115,16 @@ ul {
 }
 
 /* Link */
+.meta{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
 .link {
-  color: var(--color-primary-light);
+  color: #2b2487;
   text-decoration: none;
   transition: color 0.3s;
 }
@@ -408,6 +421,13 @@ ul {
   /* Відступ між картинкою і текстом */
 }
 
+.statistic-h2{
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 200%;
+}
+
+
 .stutistic {
   width: 500px;
   /* Або будь-який інший розмір */
@@ -415,8 +435,9 @@ ul {
 }
 
 .tradition-text {
-  font-size: 16px;
+  font-size: 19px;
   color: #333;
+  text-align: justify;
 }
 
 .molfarka-bar {
@@ -513,9 +534,8 @@ ul {
   box-shadow: -1px 2px 8px 12px #0c0128;
 }
 
-.chef-title {
-  font-size: 24px;
-  margin: 16px 0 8px;
+.chef-titl {
+  
 }
 
 .chef-text {
@@ -800,6 +820,29 @@ ul {
   flex-direction: row;
 }
 
+.game-h2-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.game-h2-container>div:last-child{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.game-h2{
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
 .map-container {
   position: relative;
   width: 100%;
@@ -1040,6 +1083,7 @@ ul {
 
 .tglink {
   font-size: 30px;
+  
 }
 
 .container-row {
