@@ -8,7 +8,7 @@ class MainScene extends Phaser.Scene {
     }
 
     create() {
-        const button = this.add.image(400, 300, 'button')
+        const button = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'button')
             .setInteractive()
             .on('pointerdown', this.startGame.bind(this));
     }
@@ -235,10 +235,11 @@ let platforms;
 let cursors;
 let score = 0;
 let gameOver = false;
-let countOfScreens = 2;
+let countOfScreens = 1.7;
 let worldWidth = 1200 * countOfScreens;
 let platformsPerScreen = 3; // Зменшено кількість рухомих платформ на 3
 let timer = 0;
 let lives = 3;
 let timerEvent;
+const isMobile = window.innerWidth < 768; // Визначаємо мобільний пристрій
 const game = new Phaser.Game(config);

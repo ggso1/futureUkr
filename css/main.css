@@ -118,8 +118,8 @@ ul {
 
 .link:hover {
   color: var(--color-brand-normal);
-}  
- 
+}
+
 
 /* Header */
 .header {
@@ -180,7 +180,7 @@ ul {
   height: 100%;
   background-color: #000000;
   display: none;
-  align-items: flex-start; 
+  align-items: flex-start;
   justify-content: flex-start;
   z-index: 1000;
   padding: 20px;
@@ -262,7 +262,7 @@ ul {
 /* Hero section */
 .hero-section {
   padding: 272px 0;
-  background-image: url("../images/fon.png");
+  background-image: url("../images/fon.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -290,7 +290,7 @@ ul {
 
   /* Для дуже великих екранів */
   @media screen and (min-width: 1200px) {
-  
+
     line-height: 1.6;
   }
 }
@@ -316,8 +316,8 @@ ul {
   to {
     opacity: 1;
   }
-}  
- 
+}
+
 
 /* Advantages section */
 .advantages-section {
@@ -340,9 +340,9 @@ ul {
 @media (max-width: 768px) {
   .advantages-list {
     display: flex;
-    justify-content: center;
-    text-align: center;
-    white-space: nowrap;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: nowrap;
   }
 }
 
@@ -366,10 +366,10 @@ ul {
   }
 
   .advantages-list {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
   }
 
   .advantages-item {
@@ -381,7 +381,7 @@ ul {
     font-size: 32px;
   }
 }
-  
+
 
 /* Bar section */
 .molfarka-bar {
@@ -397,17 +397,20 @@ ul {
 .traditions-container {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Відступ між елементами */
+  gap: 20px;
+  /* Відступ між елементами */
 }
 
 .tradition-item {
   display: flex;
   align-items: center;
-  gap: 20px; /* Відступ між картинкою і текстом */
+  gap: 20px;
+  /* Відступ між картинкою і текстом */
 }
 
 .stutistic {
-  width: 500px; /* Або будь-який інший розмір */
+  width: 500px;
+  /* Або будь-який інший розмір */
   height: auto;
 }
 
@@ -429,64 +432,44 @@ ul {
 /* Медіа-запити для адаптації */
 @media (max-width: 1024px) {
   .traditions-container {
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    gap: 20px;
   }
 
-  .traditions-content {
-    max-width: 80%;
-    margin-bottom: 20px;
+  .stutistic {
+    height: 350px;
+    width: 350px;
+
   }
 
-  .molfarka-bar {
-    max-width: 80%;
-    margin-left: 0;
-  }
+  .molfarka-bar {}
 }
 
 @media (max-width: 768px) {
-  .molfarka-bar {
-    height: 300px;
+  .stutistic {
+    height: 280px;
+    width: 280px;
   }
 
-  .traditions-title {
-    font-size: 1.5rem;
+  .tradition-text {
+    font-size: 60%;
   }
 
-  .traditions-text {
-    font-size: 1rem;
-  }
 
-  .highlighted-text {
-    font-size: 1.1rem;
-  }
 }
 
 @media (max-width: 480px) {
-  .traditions-container {
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
+  .stutistic {
+    height: 200px;
+    width: 200px;
   }
 
-  .traditions-title {
-    font-size: 1.3rem;
-  }
-
-  .traditions-text {
-    font-size: 0.9rem;
-  }
-
-  .highlighted-text {
-    font-size: 1rem;
-  }
-
-  .molfarka-bar {
-    width: 100%;
-    height: auto;
+  .tradition-text {
+    font-size: 45%;
   }
 }
+
 
 
 /* Chef section */
@@ -542,82 +525,47 @@ ul {
 /* Адаптація для планшетів та менших екранів */
 @media (max-width: 1024px) {
   .chefs-title {
-    margin-bottom: 40px;
-  }
-
-  .chef-list {
-    gap: 20px 15px;
-  }
-
-  .chef-item {
-    flex-basis: calc((100% - 15px) / 2);
-  }
-
-  .chef-card {
-    flex-direction: column;
-  }
-
-  .chef-photo {
-    height: 350px;
+   font-size: 200%;
   }
 
   .chef-title {
-    font-size: 32px;
+   font-size: 100%;
   }
 
   .chef-text {
-    font-size: 1rem;
+    font-size:80%;
   }
 }
 
 /* Адаптація для мобільних екранів */
 @media (max-width: 768px) {
   .chefs-title {
-    font-size: 24px;
-    margin-bottom: 30px;
-    text-align: center;
-  }
+    font-size: 200%;
+   }
+ 
+   .chef-title {
+    font-size: 100%;
+   }
+ 
+   .chef-text {
+     font-size:70%;
+   }
+ }
 
-  .chef-list {
-    gap: 15px 10px;
-  }
-
-  .chef-item {
-    flex-basis: 100%;
-  }
-
-  .chef-photo {
-    height: 250px;
-    top: 0;
-  }
-
-  .chef-title {
-    font-size: 28px;
-  }
-
-  .chef-text {
-    font-size: 0.9rem;
-  }
-
-  .chefs-title::before,
-  .chefs-title::after {
-    display: none;
-  }
-}
 
 @media (max-width: 480px) {
-  .chef-title {
-    font-size: 22px;
-  }
-
-  .chef-text {
-    font-size: 0.85rem;
-  }
-
-  .chef-photo {
-    height: 200px;
-  }
-}
+  .chefs-title {
+    font-size: 100%;
+   }
+ 
+   .chef-title {
+    font-size: 90%;
+   }
+ 
+   .chef-text {
+     font-size:40%;
+   }
+ }
 
 
 /* Formats section */
@@ -718,15 +666,15 @@ ul {
   .formats-container {
     display: flex;
     flex-direction: row;
-    gap: 16px; 
+    gap: 16px;
   }
 
   .formats-list {
-    gap: 16px; 
+    gap: 16px;
   }
 
   .formats-item {
-    flex-basis: calc((100% - 32px) / 2); 
+    flex-basis: calc((100% - 32px) / 2);
   }
 
   .format-card {
@@ -734,11 +682,11 @@ ul {
   }
 
   .format-title {
-    font-size: 32px; 
+    font-size: 32px;
   }
 
   .format-text {
-    font-size: 14px; 
+    font-size: 12px;
   }
 }
 
@@ -747,16 +695,16 @@ ul {
   .formats-container {
     display: flex;
     flex-direction: row;
-    gap: 12px; 
+    gap: 12px;
   }
 
   .formats-list {
     gap: 12px;
-    flex-wrap: nowrap; 
+    flex-wrap: nowrap;
   }
 
   .formats-item {
-    flex-basis: 100%; 
+    flex-basis: 100%;
   }
 
   .format-card {
@@ -764,11 +712,11 @@ ul {
   }
 
   .format-title {
-    font-size: 24px; 
+    font-size: 24px;
   }
 
   .format-text {
-    font-size: 12px; 
+    font-size: 12px;
   }
 
   .carousel-button {
@@ -823,7 +771,7 @@ ul {
     display: flex;
     flex-direction: row;
     gap: 8px;
-    
+
   }
 
   .carousel-button {
@@ -847,10 +795,11 @@ ul {
   margin-bottom: 16px;
 }
 
-#game-section{
+#game-section {
   display: flex;
   flex-direction: row;
 }
+
 .map-container {
   position: relative;
   width: 100%;
@@ -888,9 +837,11 @@ ul {
 
 #game-section {
   display: flex;
-  justify-content: center; /* Центрує весь блок */
+  justify-content: center;
+  /* Центрує весь блок */
   align-items: center;
-  gap: 20px; /* Відступ між грою і таблицею */
+  gap: 20px;
+  /* Відступ між грою і таблицею */
 }
 
 
@@ -1084,10 +1035,10 @@ ul {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  box-shadow: 0 0 10px 5px rgba(125, 4, 4, 0.73);
+  box-shadow: 0 0 10px 5px rgb(10 0 161 / 73%);
 }
 
-.tglink{
+.tglink {
   font-size: 30px;
 }
 
@@ -1117,8 +1068,8 @@ ul {
     gap: 20px;
   }
 
-  .telegram > div:first-child {
-    order: 2; 
+  .telegram>div:first-child {
+    order: 2;
   }
 
   .feedback-form {
@@ -1166,7 +1117,8 @@ ul {
   .tgsulka {
     font-size: 12px;
   }
-  .hmagic{
+
+  .hmagic {
     font-size: 20px;
   }
 }
@@ -1178,7 +1130,7 @@ ul {
     gap: 15px;
   }
 
-  .telegram > div:first-child {
+  .telegram>div:first-child {
     order: 2;
   }
 
@@ -1336,30 +1288,30 @@ button {
     margin: 20px;
   }
 
-  .result{
-    flex-direction:column
+  .result {
+    flex-direction: column
   }
 
-  .png{
+  .png {
     width: 150px;
   }
 
   .zilia {
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
   }
 
-  .zilia > div {
-    width: 90%; 
+  .zilia>div {
+    width: 90%;
     max-width: 250px;
   }
 
   .buttons-game {
-    font-size: 30px; 
+    font-size: 30px;
   }
 
   #display-image {
-    width: 80%; 
+    width: 80%;
   }
 
   .info {
@@ -1367,7 +1319,7 @@ button {
   }
 
   .click-buttons button {
-    font-size: 25px; 
+    font-size: 25px;
     padding: 8px 16px;
   }
 }
@@ -1378,7 +1330,7 @@ button {
   }
 
   .buttons-game {
-    font-size: 25px; 
+    font-size: 25px;
   }
 
   .click-buttons button {
@@ -1387,7 +1339,7 @@ button {
   }
 
   #display-image {
-    width: 100%; 
+    width: 100%;
   }
 
   .info {
@@ -1411,7 +1363,7 @@ button {
   font-size: 12px;
   overflow: hidden;
   z-index: 10;
-  
+
 }
 
 .togglebtn {
@@ -1533,7 +1485,7 @@ button {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-left:200px ;
+  margin-left: 200px;
 }
 
 .address-list,
@@ -1561,6 +1513,7 @@ button {
 .address-copyright {
   font-size: 14px;
 }
+
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
@@ -1580,7 +1533,7 @@ button {
     position: absolute;
     top: 20px;
     left: 20px;
-    margin-bottom: 0; 
+    margin-bottom: 0;
   }
 
   .footer-menu {
@@ -1623,7 +1576,7 @@ button {
   }
 
   .footer-logo img {
-    width: 100px; 
+    width: 100px;
     margin-left: -25px;
   }
 
@@ -1773,11 +1726,11 @@ button {
     width: 90%;
   }
 
-  .modalh2{
+  .modalh2 {
     font-size: 25px;
   }
 
-  .modalp{
+  .modalp {
     font-size: 10px;
   }
 
@@ -1829,8 +1782,10 @@ button {
     font-size: 12px;
   }
 
-  .footer-masia, .footer-masiap {
+  .footer-masia,
+  .footer-masiap {
     font-size: 12px;
   }
 }
+
 /*# sourceMappingURL=main.css.map */

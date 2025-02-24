@@ -59,11 +59,11 @@ sendBtn.addEventListener('click', (event) => {
             if (data.ok) {
                 // Очищаємо поле вводу після відправлення
                 feedbackInput.value = '';
-                feedbackSent.textContent = 'Пророцтво збулось!';
+                feedbackSent.textContent = 'Надіслано!';
                 feedbackSent.classList.remove('hidden');
             } else {
                 console.error("Помилка надсилання:", data);
-                feedbackSent.textContent = 'Не вдалося надіслати пророцтво.';
+                feedbackSent.textContent = 'Не вдалося надіслати.';
                 feedbackSent.classList.remove('hidden');
             }
         })
