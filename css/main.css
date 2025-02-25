@@ -49,6 +49,7 @@ h2{
 font-size: 150%;
 text-align: center;
 margin: 20px;
+white-space: nowrap;
 }
 address {
   font-style: normal;
@@ -534,13 +535,21 @@ ul {
   box-shadow: -1px 2px 8px 12px #0c0128;
 }
 
-.chef-titl {
-  
+.chef-title {
+  margin: 10px;
 }
+
+
+
 
 .chef-text {
   font-size: 1rem;
+  text-align: justify;
+  hyphens: auto;
+  margin: 0;
+  padding: 0;
 }
+
 
 /* Адаптація для планшетів та менших екранів */
 @media (max-width: 1024px) {
@@ -1097,6 +1106,7 @@ align-items: center;
 .people {
   margin-left: 80px;
   margin-right: 100px;
+  margin-bottom: -15px ;
 }
 
 .tgsulka {

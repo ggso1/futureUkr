@@ -101,14 +101,20 @@ class GameScene extends Phaser.Scene {
 
         // Колайдери для гравця
         this.physics.add.collider(player, platforms);
-        this.physics.add.collider(player, movingPlatforms);
+        this.physics.add.collider(player, movingPlatforms, function (player, platform) {
+            if (platform.body.touching.up && player.body.touching.down) {
+                player.setVelocityX(platform.body.velocity.x);
+                player.body.velocity.y = platform.body.velocity.y; // Прикріплення до платформи
+            }
+        });
+
 
         // Зірки
         stars = this.physics.add.group({
             key: 'star',
             repeat: 16.6 * countOfScreens,
             setXY: { x: 12, y: 0, stepX: 70 },
-            
+
         });
 
         stars.children.iterate(function (child) {
