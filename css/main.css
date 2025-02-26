@@ -45,12 +45,13 @@ p {
   margin-top: 0;
 }
 
-h2{
-font-size: 150%;
-text-align: center;
-margin: 20px;
-white-space: nowrap;
+h2 {
+  font-size: 150%;
+  text-align: center;
+  margin: 20px;
+  white-space: nowrap;
 }
+
 address {
   font-style: normal;
 }
@@ -88,7 +89,7 @@ ul {
   padding: 16px 32px;
   color: var(--color-primary-light);
   font-weight: 600;
-  background-color: var(--color-secondary-dark);
+  background: linear-gradient(to right, #b49b0b, #106cc9);
   border: 2px solid #000000;
   border-radius: 8px;
   cursor: pointer;
@@ -116,7 +117,7 @@ ul {
 }
 
 /* Link */
-.meta{
+.meta {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -336,7 +337,7 @@ ul {
 /* Advantages section */
 .advantages-section {
   padding: 16px 0;
-  background-color: var(--color-secondary-dark);
+  background: linear-gradient(to right, #d3c36b, #7193ba);
 
 }
 
@@ -348,15 +349,16 @@ ul {
   padding-right: 113px;
   margin: 0 auto;
   max-width: 600px;
+  color: #2b2487;
 
 }
 
 @media (max-width: 768px) {
   .advantages-list {
     display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: nowrap;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: nowrap;
   }
 }
 
@@ -422,7 +424,7 @@ ul {
   /* Відступ між картинкою і текстом */
 }
 
-.statistic-h2{
+.statistic-h2 {
   text-align: center;
   margin-bottom: 20px;
   font-size: 200%;
@@ -554,15 +556,15 @@ ul {
 /* Адаптація для планшетів та менших екранів */
 @media (max-width: 1024px) {
   .chefs-title {
-   font-size: 200%;
+    font-size: 200%;
   }
 
   .chef-title {
-   font-size: 100%;
+    font-size: 100%;
   }
 
   .chef-text {
-    font-size:80%;
+    font-size: 80%;
   }
 }
 
@@ -570,31 +572,31 @@ ul {
 @media (max-width: 768px) {
   .chefs-title {
     font-size: 200%;
-   }
- 
-   .chef-title {
+  }
+
+  .chef-title {
     font-size: 100%;
-   }
- 
-   .chef-text {
-     font-size:70%;
-   }
- }
+  }
+
+  .chef-text {
+    font-size: 70%;
+  }
+}
 
 
 @media (max-width: 480px) {
   .chefs-title {
     font-size: 100%;
-   }
- 
-   .chef-title {
+  }
+
+  .chef-title {
     font-size: 90%;
-   }
- 
-   .chef-text {
-     font-size:40%;
-   }
- }
+  }
+
+  .chef-text {
+    font-size: 40%;
+  }
+}
 
 
 /* Formats section */
@@ -829,7 +831,7 @@ ul {
   flex-direction: row;
 }
 
-.game-h2-container{
+.game-h2-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -837,7 +839,7 @@ ul {
   gap: 20px;
 }
 
-.game-h2-container>div:last-child{
+.game-h2-container>div:last-child {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -845,10 +847,10 @@ ul {
   gap: 20px;
 }
 
-.game-h2{
-display: flex;
-justify-content: center;
-align-items: center;
+.game-h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
 
@@ -1053,7 +1055,7 @@ align-items: center;
   width: 300px;
   margin: 0 auto;
   padding: 10px;
-  background-color: var(--color-secondary-dark);
+  background: linear-gradient(to right, #ffd700, #0057b7);
   color: white;
   border: none;
   border-radius: 4px;
@@ -1092,7 +1094,7 @@ align-items: center;
 
 .tglink {
   font-size: 30px;
-  
+
 }
 
 .container-row {
@@ -1106,7 +1108,7 @@ align-items: center;
 .people {
   margin-left: 80px;
   margin-right: 100px;
-  margin-bottom: -15px ;
+  margin-bottom: -15px;
 }
 
 .tgsulka {
@@ -1491,8 +1493,8 @@ button {
 .footer {
   padding: 32px 0;
   position: relative;
-  background-image: url("../images/footer%20ppp.png");
-  background-color: #0b072d;
+  background: linear-gradient(135deg, #ffd700, #0057b7);
+  background-color: var(--color-secondary-dark);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
