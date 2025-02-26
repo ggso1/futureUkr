@@ -598,6 +598,172 @@ ul {
   }
 }
 
+/* Game */
+.game {
+  font-family: Arial, sans-serif;
+  margin: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.coktail {
+  height: 100hv;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+}
+
+.zilia {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.zilia>div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.buttons-game {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 40px;
+}
+
+.click-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.click-buttons button {
+  font-size: 30px;
+  background-color: #404cc0;
+  color: #d6d9e0;
+  border-radius: 15px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, opacity 0.3s;
+}
+
+.click-buttons button:hover {
+  background-color: rgba(2, 114, 167, 0.938);
+  opacity: 0.8;
+}
+
+
+
+input[type="text-game"] {
+  width: 35px;
+  text-align: center;
+}
+
+button {
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 20px;
+  margin: 5px;
+}
+
+.png {
+  width: 200px;
+  border-radius: 10%;
+}
+
+.result {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+#display-image {
+  transition: opacity 0.5s;
+  width: 450px;
+  padding-top: 15px;
+  border-radius: 50px;
+}
+
+.info {
+  width: 400px;
+  padding-top: 15px;
+}
+
+#full_description {
+  line-height: 150%;
+}
+
+@media (max-width: 768px) {
+  .game {
+    margin: 20px;
+  }
+
+  .result {
+    flex-direction: column
+  }
+
+  .png {
+    width: 150px;
+  }
+
+  .zilia {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .zilia>div {
+    width: 90%;
+    max-width: 250px;
+  }
+
+  .buttons-game {
+    font-size: 30px;
+  }
+
+  #display-image {
+    width: 80%;
+  }
+
+  .info {
+    width: 100%;
+  }
+
+  .click-buttons button {
+    font-size: 25px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .game {
+    margin: 10px;
+  }
+
+  .buttons-game {
+    font-size: 25px;
+  }
+
+  .click-buttons button {
+    font-size: 20px;
+    padding: 6px 12px;
+  }
+
+  #display-image {
+    width: 100%;
+  }
+
+  .info {
+    width: 100%;
+    padding-top: 10px;
+  }
+}
 
 /* Formats section */
 .formats-list {
