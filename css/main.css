@@ -17,6 +17,9 @@ body {
   font-size: 18px;
   font-weight: 400;
   line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
 * {
@@ -80,6 +83,9 @@ ul {
   margin: 0 auto;
   padding: 0 15px;
   max-width: 1200px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
 
@@ -123,6 +129,8 @@ ul {
   align-items: center;
   margin-top: 20px;
   margin-bottom: 10px;
+  flex-wrap: wrap;
+  /* Дозволяє елементам перерозподілятися на маленьких екранах */
 }
 
 .link {
@@ -135,6 +143,41 @@ ul {
   color: var(--color-brand-normal);
 }
 
+/* Медіа-запити для адаптації на менших екранах */
+@media (max-width: 768px) {
+  .meta {
+    flex-direction: column;
+    /* Перехід до вертикального розташування */
+    align-items: flex-start;
+    /* Вирівнюємо елементи по лівому краю */
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .meta-text{
+    font: size 20px; ;
+  }
+
+  .link {
+    font-size: 14px;
+    /* Зменшуємо розмір шрифта для маленьких екранів */
+  }
+    @media (max-width: 480px) {
+      .meta {
+        padding: 10px;
+        /* Додаємо відступи для комфортного вигляду на маленьких екранах */
+      }
+  
+      .meta-text {
+        font-size: 15px;
+      }
+  
+      
+    }
+}
+
+
+
 
 /* Header */
 .header {
@@ -143,12 +186,17 @@ ul {
   left: 0;
   width: 100%;
   padding-top: 32px;
+  background-color: #f8f9fa;
+  padding: 20px 0;
 }
 
 .header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header-nav {
@@ -156,6 +204,8 @@ ul {
   align-items: center;
   flex-grow: 1;
   gap: 40px;
+  display: flex;
+  align-items: center;
 }
 
 .logo-form {
@@ -167,6 +217,18 @@ ul {
   display: flex;
   gap: 100px;
   padding-left: 200px;
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.header-menu li {
+  margin-right: 20px;
+}
+
+.header-menu li:last-child {
+  margin-right: 0;
 }
 
 .burger-button {
@@ -177,6 +239,7 @@ ul {
   flex-direction: column;
   gap: 5px;
   margin-top: 16px;
+  display: none;
 }
 
 .burger-button span {
@@ -199,6 +262,7 @@ ul {
   justify-content: flex-start;
   z-index: 1000;
   padding: 20px;
+  display: none;
 }
 
 .modal-menu-list {
@@ -249,6 +313,30 @@ ul {
   width: 150px;
 }
 
+.header,
+.header-container,
+.header-nav {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.hero-title .accent {
+  color: #000000e0;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.letter {
+  opacity: 0;
+  display: inline-block;
+  animation: fadeIn 0.3s forwards;
+
+}
+
+
 @media (max-width: 768px) {
   .header-menu {
     display: none;
@@ -259,19 +347,57 @@ ul {
     position: absolute;
     top: 10px;
     right: 0;
+    display: block;
   }
 
   .header-container {
     align-items: center;
+    flex-direction: column;
+  }
+
+  .header-nav {
+    gap: 20px;
+    /* Зменшуємо відстань між елементами навігації */
+  }
+
+  .logo-form {
+    width: 80px;
+    /* Зменшуємо розмір логотипу на мобільних */
   }
 
   .button {
     margin-top: 50px;
     display: flex;
     flex-direction: column;
-    padding: 10px 10px
+    padding: 10px 10px;
   }
-}
+
+    .hero-title .accent {
+      color: #000000e0;
+      display: inline-block;
+      word-wrap: break-word;
+      /* Дозволяє переносити текст */
+      overflow-wrap: break-word;
+      /* Переконайтесь, що довгі слова будуть переноситися */
+      white-space: normal;
+      /* Дозволяє переносити текст на кілька рядків */
+    }
+  
+    /* Для мобільних пристроїв */
+    @media (max-width: 768px) {
+      .hero-title  {
+        font-size: 18px;
+        /* Зменшуємо розмір шрифту для мобільних */
+      }
+    }
+  
+    /* Для дуже малих екранів */
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 16px;
+        /* Зменшуємо ще більше шрифт для дуже малих екранів */
+      }
+    }}
 
 
 /* Hero section */
@@ -280,13 +406,14 @@ ul {
   background-image: url("../images/fon.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  padding: 60px 0;
 }
 
 .hero-title {
   margin-bottom: 0;
   color: var(--color-primary-light);
   text-align: center;
-  font-size: 48px;
+  font-size: 40px;
   font-weight: 600;
   font-style: italic;
   line-height: 1.2;
@@ -310,18 +437,7 @@ ul {
   }
 }
 
-.hero-title .accent {
-  color: #000000e0;
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-}
 
-.letter {
-  opacity: 0;
-  display: inline-block;
-  animation: fadeIn 0.3s forwards;
-}
 
 @keyframes fadeIn {
   from {
@@ -331,6 +447,8 @@ ul {
   to {
     opacity: 1;
   }
+
+   
 }
 
 
@@ -338,6 +456,7 @@ ul {
 .advantages-section {
   padding: 16px 0;
   background: linear-gradient(to right, #d3c36b, #7193ba);
+  padding: 60px 0;
 
 }
 
@@ -350,6 +469,10 @@ ul {
   margin: 0 auto;
   max-width: 600px;
   color: #2b2487;
+  flex: 1 1 calc(33.333% - 20px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: #fff;
 
 }
 
@@ -366,6 +489,8 @@ ul {
   font-size: 64px;
   font-weight: 900;
   line-height: 1.3;
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 
 .section-title.centered {
@@ -373,11 +498,12 @@ ul {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 460px) {
   .advantages-section {
     background-color: var(--color-secondary-dark);
     border-radius: 12px;
     padding: 32px 16px;
+    white-space: nowrap;
     margin-top: 5px;
   }
 
@@ -419,8 +545,11 @@ ul {
 
 .tradition-item {
   display: flex;
+  flex-direction: column;
+  /* Змінено на вертикальне розташування */
   align-items: center;
-  gap: 20px;
+  /* Вирівнювання по центру */
+  gap: 10px;
   /* Відступ між картинкою і текстом */
 }
 
@@ -430,10 +559,8 @@ ul {
   font-size: 200%;
 }
 
-
 .stutistic {
   width: 500px;
-  /* Або будь-який інший розмір */
   height: auto;
 }
 
@@ -441,16 +568,6 @@ ul {
   font-size: 19px;
   color: #333;
   text-align: justify;
-}
-
-.molfarka-bar {
-  max-width: 50%;
-  margin-left: 20px;
-}
-
-.highlighted-text {
-  color: #ff6347;
-  font-weight: bold;
 }
 
 /* Медіа-запити для адаптації */
@@ -464,7 +581,6 @@ ul {
   .stutistic {
     height: 350px;
     width: 350px;
-
   }
 
   .molfarka-bar {}
@@ -476,11 +592,14 @@ ul {
     width: 280px;
   }
 
+  .tradition-item {
+    flex-direction: column;
+    /* Перехід на вертикальне розташування на менших екранах */
+  }
+
   .tradition-text {
     font-size: 60%;
   }
-
-
 }
 
 @media (max-width: 480px) {
@@ -495,14 +614,11 @@ ul {
 }
 
 
-
 /* Chef section */
+/* Стилі для секції */
 .chefs-title {
   margin: 0 auto 80px;
 }
-
-
-
 
 .chefs-title::before {
   left: 0;
@@ -514,14 +630,22 @@ ul {
 
 .chef-list {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   gap: 40px;
   flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .chef-item {
-  flex-basis: calc(100% / 3 - 40px);
+  flex-basis: calc(50% - 20px);
   text-align: center;
+  margin-bottom: 40px;
+  flex: 1 1 calc(33.333% - 20px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: #fff;
 }
 
 .chef-card {
@@ -541,22 +665,41 @@ ul {
   margin: 10px;
 }
 
-
-
-
 .chef-text {
   font-size: 1rem;
   text-align: justify;
   hyphens: auto;
   margin: 0;
   padding: 0;
+  max-width: 80%;
+  /* Обмеження ширини тексту */
+  margin-left: auto;
+  margin-right: auto;
+  /* Центрування тексту */
 }
 
-
-/* Адаптація для планшетів та менших екранів */
+/* Адаптація для планшетів */
 @media (max-width: 1024px) {
-  .chefs-title {
-    font-size: 200%;
+  .chef-item {
+    flex-basis: calc(50% - 20px);
+  }
+
+  .chef-title {
+    font-size: 100%;
+  }
+
+  .chef-text {
+    font-size: 90%;
+    max-width: 85%;
+    /* Зменшуємо максимальну ширину для більшого тексту */
+  }
+}
+
+/* Адаптація для мобільних екранів */
+@media (max-width: 768px) {
+  .chef-item {
+    flex-basis: 100%;
+    flex: 1 1 100%;
   }
 
   .chef-title {
@@ -565,24 +708,10 @@ ul {
 
   .chef-text {
     font-size: 80%;
+    max-width: 90%;
+    /* Зменшуємо максимальну ширину для мобільних */
   }
 }
-
-/* Адаптація для мобільних екранів */
-@media (max-width: 768px) {
-  .chefs-title {
-    font-size: 200%;
-  }
-
-  .chef-title {
-    font-size: 100%;
-  }
-
-  .chef-text {
-    font-size: 70%;
-  }
-}
-
 
 @media (max-width: 480px) {
   .chefs-title {
@@ -594,11 +723,11 @@ ul {
   }
 
   .chef-text {
-    font-size: 40%;
+    font-size: 100%;
+    max-width: 100%;
+ 
   }
 }
-
-
 
 /* Formats section */
 .formats-list {
@@ -606,11 +735,18 @@ ul {
   gap: 20px;
   transition: transform 0.5s ease;
   justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .formats-item {
   display: none;
   flex-shrink: 0;
+  flex: 1 1 calc(33.333% - 20px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: #fff;
 }
 
 .formats-item.visible {
@@ -707,6 +843,7 @@ ul {
 
   .formats-item {
     flex-basis: calc((100% - 32px) / 2);
+    flex: 1 1 100%;
   }
 
   .format-card {
@@ -770,6 +907,11 @@ ul {
   border-radius: 50%;
   border: 1px solid var(--color-primary-dark);
   cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
 .carousel-arrow {
@@ -830,6 +972,7 @@ ul {
 #game-section {
   display: flex;
   flex-direction: row;
+  display: none;
 }
 
 .game-h2-container {
@@ -873,65 +1016,6 @@ ul {
 }
 
 @media (max-width: 768px) {
-  .map-container {
-    height: 300px;
-  }
-}
-
-@media (max-width: 480px) {
-  .map-container {
-    height: 250px;
-  }
-
-  iframe {
-    height: 100%;
-    width: 100%;
-
-  }
-}
-
-#game-section {
-  display: flex;
-  justify-content: center;
-  /* Центрує весь блок */
-  align-items: center;
-  gap: 20px;
-  /* Відступ між грою і таблицею */
-}
-
-
-
-
-
-/*Mif*/
-.container-mif {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-  margin: 90px;
-  align-items: center;
-}
-
-.mif-us {
-  margin-left: 20px;
-}
-
-.background-mif {
-  width: 350px;
-  height: 290px;
-  -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  object-fit: cover;
-}
-
-.telegram {
-  display: flex;
-}
-
-.telegram :first-child {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   align-items: center;
 }
 
