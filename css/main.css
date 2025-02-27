@@ -17,6 +17,7 @@ body {
   font-size: 18px;
   font-weight: 400;
   line-height: 1.5;
+  background: linear-gradient(to right, #ffeb8994, #2d5dc497);
 }
 
 * {
@@ -49,7 +50,6 @@ h2 {
   font-size: 150%;
   text-align: center;
   margin: 20px;
-  white-space: nowrap;
 }
 
 address {
@@ -278,12 +278,7 @@ ul {
   width: 100px;
 }
 
-.bottom-right-image {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  width: 150px;
-}
+
 
 @media (max-width: 768px) {
   .header-menu {
@@ -322,7 +317,7 @@ ul {
   margin-bottom: 0;
   color: #000000e0;
   text-align: center;
-  font-size: 48px;
+  font-size: 50px;
   font-weight: 600;
   font-style: italic;
   line-height: 1.2;
@@ -348,8 +343,8 @@ ul {
 /* Advantages section */
 .advantages-section {
   padding: 16px 0;
-  background: linear-gradient(to right, #d3c36b, #7193ba);
-
+  
+  background: #B5BCC6;
 }
 
 .advantages-item {
@@ -1460,8 +1455,7 @@ button {
   }
 
   .info {
-      padding-top: 10px;
-      text-align: justify
+    padding-top: 10px;
   }
 
   .click-buttons button {
@@ -1489,9 +1483,8 @@ button {
   }
 
   .info {
-          text-align: center;
-            padding-top: 10px;
-            text-align: justify
+    text-align: center;
+    padding-top: 10px;
   }
 }
 
@@ -1931,6 +1924,32 @@ button {
 
   .footer-masia,
   .footer-masiap {
+    font-size: 12px;
+  }
+}
+
+/* Yellow and blue background for sections */
+.section-yellow-blue {
+  background: linear-gradient(to right, #ffd700, #0057b7);
+  /* Yellow to blue gradient */
+  color: #ffffff;
+  /* White text color for contrast */
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  .section-yellow-blue {
+    padding: 15px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-yellow-blue {
+    padding: 10px;
     font-size: 12px;
   }
 }
