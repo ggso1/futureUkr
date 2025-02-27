@@ -24,16 +24,21 @@ class GameScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('button', 'assets/start.png'); // без ../ если assets в той же директории
+        this.load.setBaseURL('./assets'); // Встановлення базового шляху
+
+        // Завантаження активів
+        this.load.image('button', 'assets/start.png'); // без ../ якщо assets в тій самій директорії
         this.load.image('sky', 'assets/13.png');
         this.load.image('ground', 'assets/platform.png');
         this.load.image('star', 'assets/star.png');
         this.load.image('bomb', 'assets/bomb.png');
         this.load.spritesheet('dude', 'assets/dude1.png', { frameWidth: 32, frameHeight: 48 });
 
+        // Завантаження Phaser Arcade Physics
+        this.load.script('arcade', 'https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser-arcade-physics.min.js');
     }
-
     create() {
+        console.log(this.anims.anims.entries);
         this.add.tileSprite(0, 120, worldWidth, 1080, "sky").setOrigin(0, 0);
         this.physics.world.setBounds(0, 0, worldWidth, 1080);
 
