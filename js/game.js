@@ -4,7 +4,7 @@ class MainScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('button', 'assets/start.png'); 
+        this.load.image('button', 'assets/start.png');
     }
 
     create() {
@@ -30,7 +30,7 @@ class GameScene extends Phaser.Scene {
         this.load.image('bomb', 'assets/bomb.png');
         this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
 
-        
+
         this.load.script('arcade', 'https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser-arcade-physics.min.js');
     }
 
@@ -40,16 +40,16 @@ class GameScene extends Phaser.Scene {
         this.add.tileSprite(0, 120, worldWidth, 1080, "sky").setOrigin(0, 0);
         this.physics.world.setBounds(0, 0, worldWidth, 1080);
 
-        // Статичні платформи
+        // Static platforms
         platforms = this.physics.add.staticGroup();
         for (let x = 0; x < worldWidth; x += 128) {
             platforms.create(x, 1050, 'ground').refreshBody();
         }
 
-        const yPositions = [900, 800]; // Відстань між платформами
+        const yPositions = [900, 800]; // Distance between platforms
 
         let movingPlatforms = this.physics.add.group();
-        let platformSpacing = 200; // Мінімальна відстань між платформами
+        let platformSpacing = 200; // Minimum distance between platforms
 
         for (let i = 0; i < platformsPerScreen; i++) {
             let x, y, validPosition;
@@ -58,7 +58,7 @@ class GameScene extends Phaser.Scene {
                 y = yPositions[i % yPositions.length]; // Use modulo to cycle through yPositions
                 validPosition = true;
 
-                // Перевірка на накладання з іншими платформами
+                // Check for overlap with other platforms
                 movingPlatforms.children.iterate(function (child) {
                     if (Math.abs(child.x - x) < platformSpacing) {
                         validPosition = false;
@@ -67,23 +67,23 @@ class GameScene extends Phaser.Scene {
             } while (!validPosition);
 
             const scale = 0.5;
-            const v = 200; // Встановлення однакової швидкості для всіх платформ
+            const v = 200; // Set the same speed for all platforms
 
             const platform = movingPlatforms.create(x, y, 'ground').setScale(scale).refreshBody();
             platform.body.setAllowGravity(false);
             platform.body.setImmovable(true);
-            platform.body.setVelocityX(v); // Встановлення однакової швидкості
+            platform.body.setVelocityX(v); // Set the same speed
             platform.setCollideWorldBounds(true);
             platform.setBounce(1, 1);
         }
 
-        // Гравець
+        // Player
         player = this.physics.add.sprite(200, 450, 'dude');
         player.setBounce(0.5);
         player.setCollideWorldBounds(true);
         player.setScale(1.5);
 
-        // Анімації для гравця
+        // Player animations
         this.anims.create({
             key: 'left',
             frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
@@ -104,16 +104,16 @@ class GameScene extends Phaser.Scene {
             repeat: -1,
         });
 
-        // Колайдери для гравця
+        // Colliders for player
         this.physics.add.collider(player, platforms);
         this.physics.add.collider(player, movingPlatforms, function (player, platform) {
             if (platform.body.touching.up && player.body.touching.down) {
                 player.setVelocityX(platform.body.velocity.x);
-                player.body.velocity.y = platform.body.velocity.y; // Прикріплення до платформи
+                player.body.velocity.y = platform.body.velocity.y; // Attach to platform
             }
         });
 
-        // Зірки
+        // Stars
         stars = this.physics.add.group({
             key: 'star',
             repeat: 16.6 * countOfScreens,
@@ -126,7 +126,7 @@ class GameScene extends Phaser.Scene {
             child.setCollideWorldBounds(true);
             child.body.setAllowGravity(true);
             child.setVelocityX(0);
-            child.setScale(0.1); // Зменшення розміру зірки до 50%
+            child.setScale(0.1); // Reduce star size to 50%
         });
 
         this.physics.add.collider(stars, platforms);
@@ -136,70 +136,70 @@ class GameScene extends Phaser.Scene {
             }
         });
 
-        this.physics.add.overlap(player, stars, collectStar, null, this);
+        this.physics.add.overlap(player, stars, this.collectStar, null, this);
 
-        // Бомби
+        // Bombs
         bombs = this.physics.add.group();
         this.physics.add.collider(bombs, platforms);
-        this.physics.add.collider(player, bombs, hitBomb, null, this);
+        this.physics.add.collider(player, bombs, this.hitBomb, null, this);
 
-        // Розширення світу
+        // Expand world
         this.cameras.main.setBounds(0, 0, worldWidth, 1080);
         this.physics.world.setBounds(0, 0, worldWidth, 1080);
 
-        // Слідкування за гравцем
+        // Follow player
         this.cameras.main.startFollow(player);
 
-        // Таймер оновлення кожну секунду
+        // Timer update every second
         timerEvent = this.time.addEvent({
             delay: 1000,
-            callback: updateTimer,
+            callback: this.updateTimer,
             callbackScope: this,
             loop: true,
         });
+    }
 
-        function collectStar(player, star) {
-            star.disableBody(true, true);
-            score += 10;
-            document.getElementById('score').innerText = score;
+    collectStar(player, star) {
+        star.disableBody(true, true);
+        score += 10;
+        document.getElementById('score').innerText = score;
 
-            if (stars.countActive(true) === 0) {
-                stars.children.iterate(function (child) {
-                    child.enableBody(true, child.x, 0, true, true);
-                    child.body.setGravityY(Phaser.Math.Between(50, 100));
-                });
+        if (stars.countActive(true) === 0) {
+            stars.children.iterate(function (child) {
+                child.enableBody(true, child.x, 0, true, true);
+                child.body.setGravityY(Phaser.Math.Between(50, 100));
+            });
 
-                const x = Phaser.Math.Between(0, worldWidth);
-                const bomb = bombs.create(x, 16, 'bomb');
-                bomb.setBounce(1);
-                bomb.setCollideWorldBounds(true);
-                bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
-                bomb.allowGravity = false;
-            }
+            const x = Phaser.Math.Between(0, worldWidth);
+            const bomb = bombs.create(x, 16, 'bomb');
+            bomb.setBounce(1);
+            bomb.setCollideWorldBounds(true);
+            bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
+            bomb.allowGravity = false;
         }
+    }
 
-        function hitBomb(player, bomb) {
-            bomb.disableBody(true, true);
-            lives -= 1;
-            document.getElementById('lives').innerText = lives;
+    hitBomb(player, bomb) {
+        bomb.disableBody(true, true);
+        lives -= 1;
+        document.getElementById('lives').innerText = lives;
 
-            if (lives === 0) {
-                this.physics.pause();
-                player.setTint(0xff0000);
-                player.anims.play('turn');
-                gameOver = true;
-                score = 0;
-                timer = 0;
-            } else {
-                resetPlayer();
-            }
+        if (lives === 0) {
+            this.physics.pause();
+            player.setTint(0xff0000);
+            player.anims.play('turn');
+            gameOver = true;
+            score = 0;
+            timer = 0;
+        } else {
+            this.resetPlayer();
         }
+    }
 
-        function updateTimer() {
-            if (!gameOver) {
-                timer++;
-                document.getElementById('time').innerText = timer;
-            }
+    updateTimer() {
+        if (!gameOver) {
+            timer++;
+            document.getElementById('time').innerText = timer;
         }
     }
 
@@ -246,7 +246,7 @@ let score = 0;
 let gameOver = false;
 let countOfScreens = 1.5;
 let worldWidth = 1200 * countOfScreens;
-let platformsPerScreen = 3; // Зменшено кількість рухомих платформ на 3
+let platformsPerScreen = 3; // Reduced number of moving platforms to 3
 let timer = 0;
 let lives = 3;
 let timerEvent;
