@@ -4,7 +4,7 @@ class MainScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('button', '../assets/start.png'); // Вкажіть правильний шлях до кнопки
+        this.load.image('button', 'assets/start.png'); 
     }
 
     create() {
@@ -24,17 +24,13 @@ class GameScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.setBaseURL('./assets'); // Встановлення базового шляху
-
-        // Завантаження активів
-        this.load.image('button', '../assets/start.png'); 
         this.load.image('sky', '../assets/13.png');
         this.load.image('ground', '../assets/platform.png');
         this.load.image('star', '../assets/star.png');
         this.load.image('bomb', '../assets/bomb.png');
         this.load.spritesheet('dude1', '../assets/dude1.png', { frameWidth: 32, frameHeight: 48 });
 
-        // Завантаження Phaser Arcade Physics
+        
         this.load.script('arcade', 'https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser-arcade-physics.min.js');
     }
 
