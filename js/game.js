@@ -27,12 +27,12 @@ class GameScene extends Phaser.Scene {
         this.load.setBaseURL('./assets'); // Встановлення базового шляху
 
         // Завантаження активів
-        this.load.image('button', 'assets/start.png'); // без ../ якщо assets в тій самій директорії
-        this.load.image('sky', 'assets/13.png');
-        this.load.image('ground', 'assets/platform.png');
-        this.load.image('star', 'assets/star.png');
-        this.load.image('bomb', 'assets/bomb.png');
-        this.load.spritesheet('dude', 'assets/dude1.png', { frameWidth: 32, frameHeight: 48 });
+        this.load.image('button', '../assets/start.png'); 
+        this.load.image('sky', '../assets/13.png');
+        this.load.image('ground', '../assets/platform.png');
+        this.load.image('star', '../assets/star.png');
+        this.load.image('bomb', '../assets/bomb.png');
+        this.load.spritesheet('dude1', '../assets/dude1.png', { frameWidth: 32, frameHeight: 48 });
 
         // Завантаження Phaser Arcade Physics
         this.load.script('arcade', 'https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser-arcade-physics.min.js');
@@ -82,7 +82,7 @@ class GameScene extends Phaser.Scene {
         }
 
         // Гравець
-        player = this.physics.add.sprite(200, 450, 'dude');
+        player = this.physics.add.sprite(200, 450, 'dude1');
         player.setBounce(0.5);
         player.setCollideWorldBounds(true);
         player.setScale(1.5);
@@ -90,20 +90,20 @@ class GameScene extends Phaser.Scene {
         // Анімації для гравця
         this.anims.create({
             key: 'left',
-            frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
+            frames: this.anims.generateFrameNumbers('dude1', { start: 0, end: 3 }),
             frameRate: 10,
             repeat: -1,
         });
 
         this.anims.create({
             key: 'turn',
-            frames: [{ key: 'dude', frame: 4 }],
+            frames: [{ key: 'dude1', frame: 4 }],
             frameRate: 20,
         });
 
         this.anims.create({
             key: 'right',
-            frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
+            frames: this.anims.generateFrameNumbers('dude1', { start: 5, end: 8 }),
             frameRate: 10,
             repeat: -1,
         });
