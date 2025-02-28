@@ -37,8 +37,10 @@ class GameScene extends Phaser.Scene {
         // Завантаження Phaser Arcade Physics
         this.load.script('arcade', 'https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser-arcade-physics.min.js');
     }
+
     create() {
-        console.log(this.anims.anims.entries);
+        console.log(this.anims.anims.entries); // Log the animation entries
+
         this.add.tileSprite(0, 120, worldWidth, 1080, "sky").setOrigin(0, 0);
         this.physics.world.setBounds(0, 0, worldWidth, 1080);
 
@@ -115,13 +117,11 @@ class GameScene extends Phaser.Scene {
             }
         });
 
-
         // Зірки
         stars = this.physics.add.group({
             key: 'star',
             repeat: 16.6 * countOfScreens,
             setXY: { x: 12, y: 0, stepX: 70 },
-
         });
 
         stars.children.iterate(function (child) {
