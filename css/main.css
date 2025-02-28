@@ -140,10 +140,7 @@ ul {
 
 /* Стилі для адаптивності на великих екранах (від 576px) */
 @media screen and (min-width: 576px) {
-  .meta-tex {
-    font-size: 14px;
-    /* Зменшено розмір тексту */
-  }
+ 
 
   .meta {
     flex-direction: row;
@@ -385,7 +382,6 @@ ul {
 
 @media (max-width: 768px) {
   .advantages-section {
-    background-color: var(--color-secondary-dark);
     border-radius: 12px;
     padding: 32px 16px;
     margin-top: 5px;
