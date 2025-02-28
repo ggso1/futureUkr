@@ -343,7 +343,7 @@ ul {
 /* Advantages section */
 .advantages-section {
   padding: 16px 0;
-  
+
   background: #B5BCC6;
 }
 
@@ -725,8 +725,9 @@ ul {
 
 .resept-title {
   border-radius: 14px;
-  background-color: #ffffff91;
+  background-color: #ffffffd9;
   padding: 10px;
+  margin: 10px;
   display: inline-block;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
 }
@@ -745,7 +746,7 @@ ul {
   font-weight: 600;
   color: #1a0e0e;
   border-radius: 14px;
-  background-color: #ffffff91;
+  background-color: #ffffffd9;
   padding: 10px;
   display: inline-block;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
